@@ -7,7 +7,7 @@ public class CellCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Verifica si el objeto que colisiona tiene el tag "Enemy"
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             // Instancia el efecto de partículas
             if (explosionEffect != null)
@@ -17,6 +17,7 @@ public class CellCollision : MonoBehaviour
 
             // Destruye el objeto "Cell"
             Destroy(gameObject);
+            Destroy(explosionEffect.gameObject);
         }
     }
 }

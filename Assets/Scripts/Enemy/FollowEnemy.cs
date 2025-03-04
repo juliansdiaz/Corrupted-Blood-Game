@@ -31,4 +31,14 @@ public class FollowEnemy : MonoBehaviour
         // Aplicar la rotacion SOLO en el eje Z
         transform.rotation = Quaternion.Euler(0f, 0f, -angle);
     }
+
+    //Hurt player when collides
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player Hit");
+            LivesManager.lives -= 1;
+        }
+    }
 }

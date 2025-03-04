@@ -8,11 +8,16 @@ using UnityEngine.Rendering;
 public class PlayerMovement : MonoBehaviour
 {
     //Variables
-    public float horizontalMovement, verticalMovement;
+    SpriteRenderer playerSpriteRenderer;
+    float horizontalMovement, verticalMovement;
     public float moveSpeed, rotationSpeed;
     Vector3 moveDirection;
 
-    // Update is called once per frame
+    void Start()
+    {
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     void Update()
     {
         MovePlayer();
@@ -39,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         {
             ResetPlayerRotation();
         }
+
+        FlipPlayerSprite();
     }
 
     void RotatePlayer()
@@ -50,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Limit rotation angle
             rotationAngle = Mathf.Clamp(rotationAngle, -90f, 90f);
-            
+
             //Create rotation only in Z axis
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, rotationAngle);
 
@@ -60,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalMovement < 0)
         {
             //Limit rotation angle
-            rotationAngle = Mathf.Clamp(rotationAngle, 90f, -90f);
+            rotationAngle = Mathf.Clamp(rotationAngle, -90f, 90f);
             //Create rotation only in Z axis
             Quaternion targetRotation = Quaternion.Euler(0f, 0f, -rotationAngle);
 
@@ -76,5 +83,19 @@ public class PlayerMovement : MonoBehaviour
 
         //Apply rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    void FlipPlayerSprite()
+    {
+        //Check if player is moving backwards
+        if (horizontalMovement < 0)
+        {
+            playerSpriteRenderer.flipX = true; //Flip player sprite
+        }
+        else if (horizontalMovement > 0)
+        {
+            playerSpriteRenderer.flipX = false;
+        }
+
     }
 }

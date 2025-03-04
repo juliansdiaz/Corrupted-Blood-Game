@@ -17,7 +17,6 @@ public class CellCollision : MonoBehaviour
 
             // Destruye el objeto "Cell"
             Destroy(gameObject);
-            Destroy(explosionEffect.gameObject);
         }
     }
 }

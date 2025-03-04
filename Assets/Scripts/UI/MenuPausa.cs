@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
     private bool juegoPausado=false;
-    
+
+    void Start()
+    {
+        menuPausa.SetActive(false);
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -27,7 +31,6 @@ public class MenuPausa : MonoBehaviour
     {
         juegoPausado=true;
         Time.timeScale=0f;
-        botonPausa.SetActive(false);
         menuPausa.SetActive(true);
     }
 
@@ -35,7 +38,6 @@ public class MenuPausa : MonoBehaviour
     {
         juegoPausado=false;
         Time.timeScale=1f;
-        //botonPausa.SetActive(true);
         menuPausa.SetActive(false);
     }
 
@@ -45,9 +47,9 @@ public class MenuPausa : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Cerrar()
+    public void MainMenu()
     {
         Debug.Log("Main Menu");
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 }

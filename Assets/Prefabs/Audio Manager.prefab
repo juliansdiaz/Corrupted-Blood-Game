@@ -46,8 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0454623bd74993845bce4057468ae2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
-  sfxSounds: []
+  musicSounds:
+  - name: Game Theme
+    clip: {fileID: 8300000, guid: e1387e4cdea35bf48b9db27eabe59acd, type: 3}
+  - name: Menu Theme
+    clip: {fileID: 8300000, guid: 5f08a0b73a9a29c408f8f291dd7129c0, type: 3}
+  sfxSounds:
+  - name: Parasite Movement
+    clip: {fileID: 8300000, guid: 5d2365d29f553f74388f8b918b141e04, type: 3}
+  - name: Eat Cell
+    clip: {fileID: 8300000, guid: c9cc04016b776c04fa38833800ab68dd, type: 3}
+  - name: Hitsound
+    clip: {fileID: 8300000, guid: ad152e697a47dd740ae6c048551163cf, type: 3}
+  - name: Death
+    clip: {fileID: 8300000, guid: 8fbd26ff02cc16447a654e823229d2aa, type: 3}
+  - name: Button Pressed
+    clip: {fileID: 8300000, guid: c4033a0272a73bd4cac21e8e4d2dd6a7, type: 3}
   musicSource: {fileID: 829978801237902330}
   sfxSource: {fileID: 3770157509716130729}
 --- !u!1 &2648109837213769258

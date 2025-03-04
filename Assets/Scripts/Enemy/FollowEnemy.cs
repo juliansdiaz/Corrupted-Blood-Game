@@ -6,10 +6,12 @@ public class FollowEnemy : MonoBehaviour
 {
     private Transform target;
     public float speed;
+    LivesManager livesManager;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        livesManager = FindAnyObjectByType<LivesManager>();
     }
 
     void Update()
@@ -38,7 +40,7 @@ public class FollowEnemy : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player Hit");
-            LivesManager.lives -= 1;
+            livesManager.lives -= 1;
         }
     }
 }

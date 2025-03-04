@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LivesManager : MonoBehaviour
 {
-   public static int lives = 3;
+   public int lives = 3;
 
     void Update()
     {

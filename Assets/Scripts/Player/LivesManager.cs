@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class LivesManager : MonoBehaviour
 {
    public int lives = 3;
+   public TextMeshProUGUI livesText;
 
     void Update()
     {
@@ -15,8 +18,8 @@ public class LivesManager : MonoBehaviour
     {
         if(lives == 0)
         {
-            Debug.Log("No more lives, player dead");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            GameManager.Instance.GameOverLose();
         }
     }
 }

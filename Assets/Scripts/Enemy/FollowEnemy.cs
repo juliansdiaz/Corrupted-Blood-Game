@@ -39,8 +39,8 @@ public class FollowEnemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player Hit");
             livesManager.lives -= 1;
+            livesManager.livesText.text = "x"+ livesManager.lives;
         }
     }
 }

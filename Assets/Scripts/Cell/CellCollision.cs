@@ -3,6 +3,12 @@ using UnityEngine;
 public class CellCollision : MonoBehaviour
 {
     public GameObject explosionEffect; // Efecto de partículas al destruirse
+    ItemsManager itemsManager;
+
+    void Start()
+    {
+        itemsManager = FindAnyObjectByType<ItemsManager>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +23,9 @@ public class CellCollision : MonoBehaviour
 
             // Destruye el objeto "Cell"
             Destroy(gameObject);
+            itemsManager.itemCount -= 1;
+            itemsManager.itemsText.text = "x" + itemsManager.itemCount;
+            itemsManager.AllItemsCollected();
         }
     }
 }

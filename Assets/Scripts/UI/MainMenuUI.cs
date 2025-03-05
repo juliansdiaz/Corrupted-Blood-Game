@@ -18,5 +18,6 @@ public class MainMenuUI : MonoBehaviour
     {
         Debug.Log("Cambio de escena");
         SceneManager.LoadScene("Main Stage");
+        Time.timeScale = 1;
     }
 }

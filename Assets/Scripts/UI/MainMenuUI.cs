@@ -17,6 +17,7 @@ public class MainMenuUI : MonoBehaviour
     public void NextScene()
     {
         Debug.Log("Cambio de escena");
+        AudioManager.Instance.PlayMusic("Game Theme");
         SceneManager.LoadScene("Main Stage");
         Time.timeScale = 1;
     }

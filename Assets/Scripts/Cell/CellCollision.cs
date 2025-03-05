@@ -19,6 +19,7 @@ public class CellCollision : MonoBehaviour
             if (explosionEffect != null)
             {
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                AudioManager.Instance.PlaySFX("Eat Cell");
             }
 
             // Destruye el objeto "Cell"

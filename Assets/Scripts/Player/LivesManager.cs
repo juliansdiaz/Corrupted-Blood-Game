@@ -18,6 +18,7 @@ public class LivesManager : MonoBehaviour
     {
         if(lives == 0)
         {
+            
             gameObject.SetActive(false);
             GameManager.Instance.GameOverLose();
         }

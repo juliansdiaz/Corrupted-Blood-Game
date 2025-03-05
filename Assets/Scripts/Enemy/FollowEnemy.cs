@@ -39,6 +39,7 @@ public class FollowEnemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX("Hitsound");
             livesManager.lives -= 1;
             livesManager.livesText.text = "x"+ livesManager.lives;
         }

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CellCollision : MonoBehaviour
 {
-    public GameObject explosionEffect; // Efecto de partículas al destruirse
+    //Variables
+    public GameObject explosionEffect;
     ItemsManager itemsManager;
 
     void Start()
@@ -12,20 +13,20 @@ public class CellCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Verifica si el objeto que colisiona tiene el tag "Enemy"
+        // Check if player collides with cell
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Instancia el efecto de partículas
+            // Play Particle effect
             if (explosionEffect != null)
             {
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
                 AudioManager.Instance.PlaySFX("Eat Cell");
             }
 
-            // Destruye el objeto "Cell"
+            // Destroy cell gameObject
             Destroy(gameObject);
-            itemsManager.itemCount -= 1;
-            itemsManager.itemsText.text = "x" + itemsManager.itemCount;
+            itemsManager.itemCount -= 1; //Update CellsCount
+            itemsManager.itemsText.text = "x" + itemsManager.itemCount; //Update Cell UI
             itemsManager.AllItemsCollected();
         }
     }

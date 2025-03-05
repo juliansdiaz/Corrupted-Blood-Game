@@ -18,7 +18,7 @@ public class LivesManager : MonoBehaviour
     {
         if(lives == 0)
         {
-            
+            AudioManager.Instance.PlaySFX("Death");
             gameObject.SetActive(false);
             GameManager.Instance.GameOverLose();
         }

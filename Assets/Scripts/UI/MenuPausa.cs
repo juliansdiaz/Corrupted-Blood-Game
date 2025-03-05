@@ -50,6 +50,7 @@ public class MenuPausa : MonoBehaviour
     public void MainMenu()
     {
         Debug.Log("Main Menu");
+        AudioManager.Instance.PlayMusic("Menu Theme");
         SceneManager.LoadScene("MainMenu");
     }
 }
